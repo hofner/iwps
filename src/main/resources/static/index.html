@@ -1,0 +1,153 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo" lang="en ng-app">
+  <head>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    	<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+    	<script src="js/catalogIWPDate.js"></script>
+   
+      
+      	<script src="service/catalogIWP_service.js"></script>
+      	<script src="lib/jquery-3.1.0.js"></script>
+      	<script src="controller/catalogIWP_controller.js>"></script>
+    	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+	
+		<link rel="stylesheet" href="css/assets/assets.css">
+		<link rel="stylesheet" href="css/assets/systemBar.css">
+		<link rel="stylesheet" href="css/dtra.css">
+
+    	<meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+		<meta content="utf-8" http-equiv="encoding"/>
+  </head>
+    <body  class="ng-cloak">
+
+
+<div class="ebLayout">
+		<div class="ebLayout-Navigation">
+			<div class="ebBreadcrumbs">
+				<div class="ebBreadcrumbs-item">
+					<a href="#" class="ebBreadcrumbs-link">Home</a>	
+				</div>			
+		</div>
+		<div class="ebLayout-AppHeading">
+			<h1 class="ebEricssonFont">DTRA Catalog IWP</h1>
+		</div>
+
+		<div class="ebQuickActionBar">
+			<div class="ebQuickActionBar-Commands">
+				<div class="eaDtra-narrowView">
+
+
+					<!--<button class="ebBtn ebBtn_color_green" ng-show="editing !== true" ng-click="showProjectForm()">
+						<i class="ebIcon ebIcon_add_white"></i>
+						<span>New Project</span>
+					</button>-->
+	
+			</div>
+			</div>
+			<div class="ebLayout-clearFix"></div>
+		</div>
+		<div id="summarySection" >
+
+			<div class="ebLayout-SectionSubheading">
+				<h3>Load Catalog IWP</h3>
+
+				<div class="ebLayout-clear">																									  
+				<div ng-controller="catalogIWPController as ctrl">
+					<div>
+					  <h4>Formatting codes playground</h4>
+					  <p class="form-group">
+						<label>Define your format</label>
+						<input type="text" ng-model="format" class="form-control"  >
+					  </p>
+					  <p class="form-group">
+						<label>Result</label>
+						<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="date" readonly="true" />
+					  </p>
+				</div>
+				  <div  class="generic-container" >
+					   <div >
+							  <form ng-submit="ctrl.submit()" name="myForm" >                                 
+								  <div class="row">
+									  <div class="form-actions floatRight">
+										  <input type="submit"  value="add"  class="ebBtn ebBtn_color_darkBlue eaDtra-form-button">                            
+									  </div>
+								  </div>
+							  </form>
+						  </div>
+			</div>
+			</div></div>
+			</div>
+			<div class="ebLayout-Content eaDtra-Content">
+	
+			
+
+				<!--<canvas id="summary" class="chart chart-doughnut" chart-data="summaryData" chart-labels="summaryLabels" chart-options="summaryOptions" chart-colours="summaryColors" chart-click="onChartClick"></canvas>-->
+				<p class="ebEricssonFont ebText_alternative eaDtra-alignCenter">Total: {{totalProjects}}</p>
+				<div class="ebLoader eaDtra-summaryLoader">
+
+					<!--<div class="ebLoader-Holder">
+						<span  class="ebLoader-Dots ebLoader-Dots_color_darkGreen"></span>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		
+		<div id="detailsSection" class="eaDtra-projectDetailForm">
+			<div class="ebLayout-SectionSubheading">
+				<h3>Details for : <b>{{projectEditedName}}</b></h3>
+			</div>
+
+			<div id="projectForm">
+
+				<table class="eaDtra-form-table">
+					
+					<tr>
+						<td><div><label class="ebLabel ebLabel-text_required">Customer Name:</label></div></td>
+						<td><input type="text" class="ebInput ebInput_width_xLong" placeholder="Customer Name" ng-model="editedProject.customerName" required></input></td>
+						<td><div><label class="ebLabel">SPM:</label></div></td>
+						<td>
+							<input type="text" class="ebInput ebInput_width_xLong" ng-model="editedProject.assignedSpm" ng-disabled="isDelOrgSelected() !== ''"></input>
+							<i class="ebIcon ebIcon_advancedSearch" ng-class="isDelOrgSelected()"></i>
+						</td>
+					</tr>
+					<tr>
+						<td><div><label class="ebLabel ebLabel-text_required">Ordering Organization:</label></div></td>
+						<td>
+							<div ericsson-select ericsson-select-config="ordOrgSelectConfig" ng-model="editedProject.orderingOrgId"></div>
+						</td>
+						<td valign="top"><div><label class="ebLabel">Assisting CPM:</label></div></td>
+						<td valign="top" rowspan="2">
+							<textarea id="assistingCpmArea" rows="5" class="ebTextArea ebTextArea_width_xLong" ng-model="editedProject.assistingCpm" ng-disabled="isOrdOrgSelected(ordOrgSelectConfig) !== ''"></textarea>
+							<i class="ebIcon ebIcon_advancedSearch" ng-class="isOrdOrgSelected(ordOrgSelectConfig)" ng-click="openSearchPeopleDialog('CPM', ordOrgSelectConfig.id, '.eaDtra-people-dialog')" ></i>
+						</td>
+					</tr>
+					<tr>
+						<td><div><label class="ebLabel ebLabel-text_required">Country:</label></div></td>
+						<td>
+							<div ericsson-select ericsson-select-config="countrySelectConfig" ng-model="editedProject.countryId"></div>
+						</td>
+						<td></td>
+					</tr>
+				
+				
+			
+					<tr class="eaDtra-projectDetailForm-separator eaDtra-projectDetailForm-fullRow">
+						<td colspan="4">
+							<button class="ebBtn ebBtn_color_darkBlue eaDtra-form-button" ng-class="">Save</button>
+							<button class="ebBtn eaDtra-form-button">Cancel</button> 
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+
+
+	</body>
+  </body>
+</html>

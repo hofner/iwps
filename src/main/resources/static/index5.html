@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8"> 
+<title>CodePen - Bootstrap AngularJS off-canvas menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+	 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script> 
+	<script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js'></script>	
+          
+	
+    <script src="js/grid4.js"></script>            
+    <link rel="stylesheet" href="css/dtra.css">
+   	<!-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>	 -->
+	<link rel="stylesheet" href="css/assets/assets.css">
+	<link rel="stylesheet" href="css/assets/systemBar.css">
+	<link rel="stylesheet" href="css/dtra.css">
+	<script src="js/ui-grid.js"></script>  
+	
+  <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid-unstable.css" >
+   <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'>
+<style class="cp-pen-styles">.menuBardemoBasicUsage .page-container {
+  padding: 32px; }
+
+.menuBardemoBasicUsage .page {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 680px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25); }
+
+.menuBardemoBasicUsage .page h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: normal; }
+
+.menuBardemoBasicUsage .page p {
+  line-height: 1.6rem; }
+
+
+</style>
+     
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+</head>
+
+<body translate="no" >
+<div  ng-repeat="i in [1,2, 3, 4, 5] track by $index" flex-xs="100" flex-sm="50" flex-md="50" flex="33">
+
+<div class="sidenavdemoCustomSidenav" style="height: 500px;" ng-controller="AppCtrl" ng-app="app" layout="column" ng-cloak="">
+  <section >
+    <div >
+			
+					
+					
+					
+											
+		<div class="menuBardemoBasicUsage" ng-controller="DemoBasicCtrl as ctrl"  ng-cloak="" layout="column">
+		   <md-sidenav class="md-sidenav-left" md-whiteframe="4" md-component-id="left" md-disable-backdrop="">
+
+						  <md-toolbar class="md-theme-indigo">
+							<h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+						  </md-toolbar>
+
+						  <md-content layout-margin="">
+							<p>
+							  This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
+							</p>
+							<md-button class="md-accent" ng-click="toggleLeft()">
+							  Close this Sidenav
+							</md-button>
+						  </md-content>
+
+				</md-sidenav>
+				  <md-toolbar class="md-menu-toolbar">
+					<div layout="row">
+					
+					  <md-toolbar-filler layout="" layout-align="center center">
+						<md-icon md-svg-icon="call:chat"></md-icon>
+					  </md-toolbar-filler>
+
+					  <div>
+					  
+						<h2 class="md-toolbar-tools">Catalog Iwp</h2>
+						<md-menu-bar>
+						  <md-menu>
+						  
+							<button ng-click="$mdOpenMenu()">
+							  File
+							</button>
+							<md-menu-content>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('share', $event)">
+								  Share...
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item>
+								<md-menu>
+								  <md-button ng-click="$mdOpenMenu()">New</md-button>
+								  <md-menu-content>
+									<md-menu-item><md-button ng-click="ctrl.sampleAction('New Document', $event)">Document</md-button></md-menu-item>
+									<md-menu-item><md-button ng-click="ctrl.sampleAction('New Spreadsheet', $event)">Spreadsheet</md-button></md-menu-item>
+									<md-menu-item><md-button ng-click="ctrl.sampleAction('New Presentation', $event)">Presentation</md-button></md-menu-item>
+									<md-menu-item><md-button ng-click="ctrl.sampleAction('New Form', $event)">Form</md-button></md-menu-item>
+									<md-menu-item><md-button ng-click="ctrl.sampleAction('New Drawing', $event)">Drawing</md-button></md-menu-item>
+								  </md-menu-content>
+								</md-menu>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('Open', $event)">
+								  Open...
+								  <span class="md-alt-text"> {{ 'M-O' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button disabled="disabled" ng-click="ctrl.sampleAction('Rename', $event)">
+								  Rename
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('Print', $event)">
+								  Print
+								  <span class="md-alt-text">{{ 'M-P' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							</md-menu-content>
+						  </md-menu>
+						  <md-menu>
+							<button ng-click="$mdOpenMenu()">
+							  Edit
+							</button>
+							<md-menu-content>
+							  <md-menu-item class="md-indent">
+								<md-icon md-svg-icon="undo"></md-icon>
+								<md-button ng-click="ctrl.sampleAction('undo', $event)">
+								  Undo
+								  <span class="md-alt-text">{{ 'M-Z' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item class="md-indent">
+								<md-icon md-svg-icon="redo"></md-icon>
+								<md-button ng-click="ctrl.sampleAction('redo', $event)">
+								  Redo
+								  <span class="md-alt-text">{{ 'M-Y' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item class="md-indent">
+								<md-icon md-svg-icon="content-cut"></md-icon>
+								<md-button ng-click="ctrl.sampleAction('cut', $event)">
+								  Cut
+								  <span class="md-alt-text">{{ 'M-X' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item class="md-indent">
+								<md-icon md-svg-icon="content-copy"></md-icon>
+								<md-button ng-click="ctrl.sampleAction('copy', $event)">
+								  Copy
+								  <span class="md-alt-text">{{ 'M-C' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item class="md-indent">
+								<md-icon md-svg-icon="content-paste"></md-icon>
+								<md-button ng-click="ctrl.sampleAction('paste', $event)">
+								  Paste
+								  <span class="md-alt-text">{{ 'M-P' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item class="md-indent">
+								<md-button ng-click="ctrl.sampleAction('Find and replace', $event)">
+								  Find and replace...
+								  <span class="md-alt-text">{{ 'M-S-H' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							</md-menu-content>
+						  </md-menu>
+						  <md-menu>
+							<button ng-click="$mdOpenMenu()">
+							  View
+							</button>
+							<md-menu-content>
+							  <md-menu-item type="checkbox" ng-model="ctrl.settings.printLayout">Print layout</md-menu-item>
+							  <md-menu-item class="md-indent">
+								<md-menu>
+								  <md-button ng-click="$mdOpenMenu()">Mode</md-button>
+								  <md-menu-content width="3">
+									<md-menu-item type="radio" ng-model="ctrl.settings.presentationMode" value="'presentation'">Presentation</md-menu-item>
+									<md-menu-item type="radio" ng-model="ctrl.settings.presentationMode" value="'edit'">Edit</md-menu-item>
+									<md-menu-item type="radio" ng-model="ctrl.settings.presentationMode" value="'modifiable'">Modifiable</md-menu-item>
+								  </md-menu-content>
+								</md-menu>
+							  </md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item type="checkbox" ng-model="ctrl.settings.showRuler">Show ruler</md-menu-item>
+							  <md-menu-item type="checkbox" ng-model="ctrl.settings.showEquationToolbar">Show equation toolbar</md-menu-item>
+							  <md-menu-item type="checkbox" ng-model="ctrl.settings.showSpellingSuggestions">Show spelling suggestions</md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item type="checkbox" ng-model="ctrl.settings.compactControls">Compact controls</md-menu-item>
+							  <md-menu-item type="checkbox" ng-model="ctrl.settings.fullScreen">Full screen</md-menu-item>
+							</md-menu-content>
+						  </md-menu>
+						  <md-menu>
+							<button ng-click="$mdOpenMenu()">
+							  Format
+							</button>
+							<md-menu-content>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('bold', $event)">
+								  Bold
+								  <span class="md-alt-text"> {{ 'M-B' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('italic', $event)">
+								  Italic
+								  <span class="md-alt-text">{{ 'M-I' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('underline', $event)">
+								  Underline
+								  <span class="md-alt-text">{{ 'M-U' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('strikethrough', $event)">
+								  Strikethrough
+								  <span class="md-alt-text">{{ 'A-S-5' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('superscript', $event)">
+								  Superscript
+								  <span class="md-alt-text">{{ 'M-.' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-item>
+								<md-button ng-click="ctrl.sampleAction('subscript', $event)">
+								  Subscript
+								  <span class="md-alt-text">{{ 'M-,' | keyboardShortcut }}</span>
+								</md-button>
+							  </md-menu-item>
+							  <md-menu-divider></md-menu-divider>
+							  <md-menu-item><md-button ng-click="ctrl.toggleSetting('clearFormatting')">Clear Formatting</md-button></md-menu-item>
+							</md-menu-content>
+						  </md-menu>
+						</md-menu-bar>
+					  </div>
+					</div>
+				  </md-toolbar>
+
+					  <md-content class="page-container">
+					    <md-button class="md-raised" ng-click="toggleLeft()">Toggle Sidenav</md-button>
+						<md-card class="page">
+						   <div ng-controller="MainCtrl">
+										  
+											<div>
+										  <div></div>
+										 
+										  <p class="form-group">
+											<label>Last Update</label>
+											<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="date" readonly="true" />
+										  </p>
+									</div>
+										
+										   <md-button class="md-raised" ng-click="refreshData()">Refresh Data</md-button>  <strong>Calls Pending:</strong> <span ng-bind="callsPending"></span>
+										    <md-button class="md-raised" ng-click="updateData()">Update Data</md-button>
+										      
+										  <br>
+										  <br>
+										  <strong>{{ myData.length }} rows</strong>
+										  <br>
+										  <div id="grid1" ui-grid="gridOptions" ui-grid-selection ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning  ui-grid-move-columns ui-grid-importer ui-grid-exporter ui-grid-grouping class="grid"></div>
+										</div>
+						</md-card>
+					  </md-content>
+		</div>
+ 									
+	</div>   
+						
+					  
+					
+
+
+</section>
+</div>
+</div>
+
+</body>
+</html>
+ 

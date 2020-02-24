@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<title>DTRA IWP Validation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/test.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script>
+	function validateIWPs() {		
+		var strIWP = document.forms["iwpform"]["iwplist"].value;
+		if (strIWP == "" || strIWP.startsWith("Type here")) {
+			alert("The list of IWP is empty or invalid");
+			return false;
+		} else {
+			strIWP = strIWP.replace("\n",",").replace(" ",",");
+			alert("Generate IWPv for: " + strIWP);
+			var form = document.forms["iwpform"];
+			document.forms["iwpform"]["iwplist"].value = strIWP;
+			if(document.forms["iwpform"]["db"].value == "")
+				document.forms["iwpform"]["db"].value = "TRAINING";			
+			document.forms["iwpform"]["emails"].value = "jorge.ivan.i.martinez@ericsson.com";
+			var iwplist = iwpstrIWP.split("\n");
+			return true;
+		}		
+	}
+	
+	function setCube(db) {
+		alert(db + " is the DTRA cube selected.");		
+		document.forms["iwpform"]["db"].value = db;			
+	}
+</script>
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-container w3-top w3-black w3-large w3-padding" style="z-index:4">
+  <button class="w3-button w3-hide-large w3-padding-0 w3-black w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-right">DTRA IWP-v Validation</span>
+</div>
+
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">      
+    </div>
+    <div class="w3-col s8">
+      <span>Welcome, <strong>User</strong></span><br>
+      <a href="#" class="w3-hover-none w3-hover-text-red w3-show-inline-block"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-hover-none w3-hover-text-green w3-show-inline-block"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-hover-none w3-hover-text-blue w3-show-inline-block"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <a href="#" class="w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>  
+  <a href="#General" class="w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>  
+  <a href="#SCPViewer" class="w3-padding"><i class="fa fa-users fa-fw"></i>  Inspect SCP File</a>
+  <a href="#Validation" class="w3-padding"><i class="fa fa-eye fa-fw"></i>  Validate IWPV</a>    
+  <a href="#Settings" class="w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+</nav>
+
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+
+  
+  <hr>
+  <div class="w3-container" id="General">
+    <h5><i class="fa fa-bell fa-fw"></i><b>General</b></h5>
+	<div class="w3-row">
+      <div class="w3-col m2 text-center">        
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>DTRA IWPV Validation 0.1 <span class="w3-opacity w3-medium">March 16, 2017</span></h4>
+        <p>Activity FireCode Mapping: IWP Generation by IWPID instead of IWPUniqueID</p><br>
+      </div>
+    </div>
+	<div class="w3-row">
+      <div class="w3-col m2 text-center">        
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>DTRA IWPV Validation 0.1 <span class="w3-opacity w3-medium">March 14, 2017</span></h4>
+        <p>Check invalid Dependencies 1: Infinity Loops.</p><br>
+      </div>
+    </div>
+	<div class="w3-row">
+      <div class="w3-col m2 text-center">        
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>DTRA IWPV Validation 0.1 <span class="w3-opacity w3-medium">March 13, 2017</span></h4>
+        <p>Links Length Fixed: URLs truncation for entries greater than MAX LENGTH</p><br>
+      </div>
+    </div>
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">        
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>DTRA IWPV Validation 0.1 <span class="w3-opacity w3-medium">March 3, 2017</span></h4>
+        <p>First Version to validate IWPV with Activity Count and WP Quantity greater than 1.</p><br>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">        
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>DTRA IWPV Validation 0.1 <span class="w3-opacity w3-medium">March 3, 2017</span></h4>
+        <p>Validate Total Activities less than LIMIT (75).</p><br>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+  <hr>
+  <div class="w3-container" id="SCPViewer">	
+    <h5><b><i class="fa fa-users fa-fw"></i> SCP Viewer</b></h5>
+    <p>Not ready</p>    
+  </div>
+  <hr>
+  
+  
+  
+  <div id="Validation"></div>  
+  <h5><b><i class="fa fa-eye fa-fw"></i> Validate IWPv</b></h5>    
+  <h5><i class="fa fa-cog fa-fw"></i>Current DTRA Cube Data Used: <b>{{DBUSED}}</b></h5>     
+  <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-row">
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-green">Available Packages</h5>
+        <p>IWP1_V1</p>
+        <p>IWP2_V3</p>
+        <p>IWP3_V4</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-red">Selected Packages</h5>
+		<form name="iwpform" action="/catalog/spcgenerate" method="get" onsubmit="return validateIWPs();">
+			<textarea name="iwplist" rows="10" cols="30" name="iwps">Type here the list of IWPs to validate		
+			</textarea><br>
+			<input type="hidden" name="db" value="TRAINING"/>
+			<input type="hidden" name="emails" value="jorge.ivan.i.martinez@ericsson.com,mauricio.ruiz.palacios@ericsson.com"/>
+			<input type="submit" value="Validate IWPs">
+		</form>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-orange">Email Destinations</h5>
+        <ul class="w3-ul w3-card-4 w3-white">
+		  <li class="w3-padding-16">
+			<span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-tiny">x</span>			
+			<span class="w3-tiny">Juan Miguel Olguin</span><br>
+		  </li>
+		  <li class="w3-padding-16">
+			<span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-tiny">x</span>			
+			<span class="w3-tiny">Jose Luis Gonzalez L</span><br>
+		  </li>
+		  <li class="w3-padding-16">
+			<span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding w3-margin-right w3-tiny">x</span>			
+			<span class="w3-tiny">Mauricio</span><br>
+		  </li>
+		</ul>
+      </div>
+    </div>
+  </div>
+  
+  <hr>
+  <h5><i class="fa fa-cog fa-fw"></i><b> Settings</b></h5>  
+  <br>Select DTRA Cube Source<br>
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter" onclick="setCube('PRODUCTION')" style="cursor: pointer">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></i></div>
+        <div class="w3-right">
+          <h4>PRODUCTION</h4>
+        </div>
+        <div class="w3-clear"></div>        
+      </div>
+    </div>
+    <div class="w3-quarter" onclick="setCube('TRAINING')" style="cursor: pointer">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h4>TRAINING</h4>
+        </div>
+        <div class="w3-clear"></div>        
+      </div>
+    </div>
+    <div class="w3-quarter" onclick="setCube('SPBI')" style="cursor: pointer">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h4>SPBI</h4>
+        </div>
+        <div class="w3-clear"></div>       
+      </div>
+    </div>
+    <div class="w3-quarter" onclick="setCube('ACCEPTANCE')" style="cursor: pointer">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h4>ACCEPTANCE</h4>
+        </div>
+        <div class="w3-clear"></div>        
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4>SPOM</h4>
+    <p>Welcome <a href="mailto:jose.luis.l.gonzalez@ericsson.com" target="_blank">Comments</a></p>
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidenav
+var mySidenav = document.getElementById("mySidenav");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidenav, and add overlay effect
+function w3_open() {
+    if (mySidenav.style.display === 'block') {
+        mySidenav.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidenav.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+// Close the sidenav with the close button
+function w3_close() {
+    mySidenav.style.display = "none";
+    overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,471 @@
+html {
+	max-height : 100%;
+}
+
+.ebContextMenu-ExpandBtn:active .ebContextMenu-Dropdown {
+	display: block;
+	visibility: visible;
+}
+
+#TopMenu {
+    position: absolute;
+    top: 0;
+    height: 40px;
+    left: 0;
+    right: 0;
+}
+#Container {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+}
+
+.eaDtra-MasterSide {
+	position: relative;
+	float: left;
+	width: 280px;
+	text-align: center;
+}
+.eaDtra-MasterSide-block {
+	display: inline-block;
+	width: 280px;
+	text-align: left;
+}
+.eaDtra-ContentSide {
+	margin-left: 316px;
+}
+.eaDtra-Content {
+	display: table;
+	width: 100%;
+}
+.eaDtra-Content-block {
+	text-align: center;
+	vertical-align: middle;
+	background: url('../content_icon.svg') transparent;
+	font-size: 1.8rem;
+	color: #8d8d8d;
+	line-height: 2.4rem;
+	font-weight: bold;
+	display: table-cell;
+}
+
+@media screen and (max-width: 768px) {
+	.eaDtra-narrowView {
+		display: none;
+	}
+	.eaDtra-fullView {
+		display: none;
+	}
+	.eaDtra-MasterSide {
+		float: none;
+		width: auto;
+	}
+	.eaDtra-MasterSide-block {
+		margin: 0 1.2rem;
+	}
+	.eaDtra-ContentSide {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.eaDtra-MasterSide-block {
+		width: 100%;
+		margin: 0;
+	}
+	.eaDtra-searchBtn {
+		min-width: 40px;
+	}
+	.eaDtra-searchBtn span {
+		display: none;
+	}
+}
+
+@font-face {
+  font-family: EricssonCapitalTT;
+  src: url('resources/font/EricssonCapitalTT.ttf') format('truetype');
+}
+
+.eaLogin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 500px;
+  height: 450px;
+  padding: 20px;
+  background-color: #E9E9E9;
+  min-height: 350px;
+  box-shadow: #999 0 1px 3px;
+  border-radius: 10px;
+}
+
+.eaLogin-inner {
+  position: relative;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.eaLogin-ericssonLogo {
+  background: url('resources/ericssonLogo_blue.svg') 30px 40px no-repeat;
+  height: 100px;
+  width: 100%;
+}
+
+.eaLogin-body {
+  position: relative;
+  margin: 60px 50px 0 50px;
+  height: 220px;
+}
+
+.eaLogin-title {
+  vertical-align: middle;
+  font-family: EricssonCapitalTT, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  line-height: 3.6rem;
+  color: #151f77;
+  margin-bottom: 20px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: -webkit-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.1, #a2c517), color-stop(0.3, #009046), color-stop(0.5, #0082b6), color-stop(0.7, #151f77), color-stop(1, #db0050));
+  background-image: -moz-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background-image: -ms-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  background-image: linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 100%);
+  
+}
+
+.eaLogin-licenceHeader {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 32px;
+  line-height: 16px;
+}
+
+.eaLogin-licenceButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.eaLogin-formButton {
+  min-width: 30px;
+  margin: 0;
+}
+
+.eaLogin-loginUsername {
+  width: 160px;
+  margin: 0 0.8rem 0 0;
+}
+
+.eaLogin-loginField_error_true {
+  border-color: #e5182e;
+}
+
+.eaLogin-loginPassword {
+  width: 160px;
+  margin: 0 0.8rem 0 0;
+}
+
+.eaLogin-messagesBox {
+  background: url('resources/errorIcon01.svg') 1px center no-repeat transparent;
+  font-size: 1.3rem;
+  vertical-align: middle;
+  line-height: 1.6rem;
+  margin: 5px 0 0;
+  padding-left: 15px;
+  color: #e5182e;
+}
+
+.eaLogin-passRemind {
+  height: 30px;
+  line-height: 30px;
+}
+
+.eaLogin-inputWrap {
+  height: 70px;
+  font-size: 0;
+}
+
+.eaLogin-inputComposition {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.eaLogin-copy {
+  position: absolute;
+  bottom: 0;
+  padding-left: 50px;
+  color: #D2D2D2;
+}
+
+@media screen and (max-width: 549px), screen and (max-height: 499px) {
+
+  .eaLogin {
+    position: relative;
+    background-color: white;
+    padding: 0;
+    width: calc(100% - 20px);
+    height: 100%;
+    margin: 10px 10px;
+
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .eaLogin-inner {
+    min-height: 400px;
+  }
+
+  .eaLogin-body {
+    margin: 30px 20px 0 20px;
+  }
+
+  .eaLogin-form {
+    min-height: 106px;
+  }
+
+  .eaLogin-formButton {
+    width: 30px;
+    margin: 0.3rem 0;
+  }
+
+  .eaLogin-loginUsername, .eaLogin-loginPassword {
+    width: 120px;
+    margin: 0.3rem 0.8rem 0.3rem 0;
+  }
+
+  .eaLogin-messagesBox {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .eaLogin-inputWrap {
+    height: 60px;
+  }
+
+  .eaLogin-passRemind {
+    height: 26px;
+    line-height: 26px;
+  }
+
+  .eaLogin-ericssonLogo {
+    height: 20%;
+    min-height: 80px;
+    background-size: 50px;
+    background-position: 20px 20px;
+  }
+
+  .eaLogin-copy {
+    position: absolute;
+    bottom: 0.5rem;
+    padding: 0 20px;
+    font-size: 1rem;
+  }
+
+}
+
+.ebSystemBar-rightButton {
+  line-height: 38px; /** Changed to 38 instead of 40. */
+}
+
+.ebSystemBar-rightButton a {
+	color: #333;
+}
+
+.ebSystemBar-rightButton a i {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	position: relative;
+	top: 3px;
+}
+
+.ebSystemBar-topMenuUserName {
+	float: right;
+	display: inline-block;
+	line-height: 40px;
+	vertical-align: middle;
+	padding: 0 18px 0 0;
+	margin: 0;
+	font-size: 1.3rem;
+	line-height: 38px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 18px center;
+}
+
+.ebSystemBar-topMenuUserName i {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	position: relative;
+	top: 3px;
+}
+
+.eaDtra-alignCenter {
+	text-align: center;
+}
+
+.eaDtra-detailsTable {
+	width: 100%;
+	height: 100%;
+}
+
+.eaDtra-sectionHeaderLabel {
+	font-size: 1.1rem;
+}
+
+.eaDtra-table-nonSelectable  {
+	display: table-row;
+}
+
+.eaDtra-table-nonSelectable td {
+	padding: 4px 0 !important;
+	width: 100%;
+}
+
+.eaDtra-table-nonSelectable td input {
+	width: calc(100% - 24px);
+}
+
+.eaDtra-projectDetailForm {
+	max-height: 100%;
+	width: 100%;
+	float: bottom;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table {
+	margin-left: auto;
+    margin-right: auto;
+	border-spacing: 0px;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td:first-child {
+	padding: 10px 20px 10px 0;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td:nth-child(2) {
+	padding: 10px 20px 10px 10px;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td:nth-child(3) {
+	padding: 10px 20px 10px 20px;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td {
+	min-width: 250px;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td:nth-child(odd) div {
+	width: 100%;
+	height: 2.6rem;
+	background-color: #f2f2f2;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td:last-child {
+	padding: 10px 0 10px 20px;
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td:nth-child(2) {
+	border-right: 1pt solid rgb(204,204,204);
+}
+
+.eaDtra-projectDetailForm .eaDtra-form-table tr td div label {
+	font-weight: bold;
+	padding-left: 10px;
+	padding-top: 8px;
+}
+
+.eaDtra-projectDetailForm-separator td {
+	border-top: 1pt solid rgb(204,204,204);
+}
+
+.eaDtra-form-button {
+	float: right;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.ebSelect_xLongW, .ebSelect_width_xLong,
+.ebSelect_width_xLong .ebSelect-header {
+	width: 220px;
+}
+
+.ebSelect_width_xLong .ebSelect-value {
+	width: 191px;
+}
+
+.eaDtra-projectDetailForm-fullRow td {
+	padding: 10px 0 10px 0 !important;
+}
+
+.eaDtra-wpLabel {
+	float:left;
+	display:inline-block;
+	padding-top:0px  !important;
+}
+
+.eaDtra-button-right {
+	float:right;
+	margin-right:10px;
+}
+
+.eaDtra-projectDetailForm .eaDtra-narrowView.eaDtra-head-buttons {
+	width: calc(100% - 5px);
+}
+
+.eaDtra-head-buttons button:first-of-type {
+	margin-left: 10px;
+}
+
+.ericsson-select .ebComponentList {
+	min-height: 3rem;
+}
+
+.ericsson-select .ebLoader-Dots {
+	top: calc(50% + 4px);
+}
+
+.eaDtra-wpg-div td {
+	padding: 0 20px 10px 20px !important;
+}
+
+.eaDtra-people-dialog {
+	margin: auto;
+    position: absolute;
+    left: calc(50% - 400px);
+    top: calc(50% - 250px);
+    width : 800px;
+	height : 500px;
+}
+
+.eaDtra-wpg-dialog {
+	margin: auto;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 200px);
+    width : 400px;
+	height : 400px;
+}
+
+.eaDtra-people-dialog .ebDialogBox {
+	width : 800px;
+	height : 500px;
+}
+
+.eaDtra-people-table {
+	margin-top : 10px;
+}
+
+.eaDtra-people-table thead th:first-child {
+	width : 20px;
+}
